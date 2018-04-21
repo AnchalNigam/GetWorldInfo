@@ -1,0 +1,188 @@
+<!--header view-->
+<app-header-view [url]="'https://cdn.pixabay.com/photo/2018/04/17/13/55/panorama-3327550__340.jpg'" [subheading]="'Explore the countries and Make your Own Map....'"
+  [heading]="entityValue.toUpperCase()" [color]="'white'"></app-header-view>
+<!--end of header view-->
+<!-- container start -->
+<div class="container" *ngIf="countryList">
+
+  <div class="row mb-3">
+    <div class="col-12 text-center">
+      <p class="btn btn-danger btn-md">Filter</p>
+
+    </div>
+  </div><!-- row end -->
+
+  <div class="row mb-5">
+    <div class="col-4">
+      <form #myForm="ngForm">
+        <div class="form-group">
+          <label id="label-set">Choose your Order:</label>
+          <select [(ngModel)]="inputValue" name="inputVal" class="form-control">
+            <option value="ascending" [selected]>Ascending</option>
+            <option value="descending">Descending</option>
+
+          </select>
+        </div>
+      </form>
+
+    </div>
+
+
+    <div class="col-4">
+      <form #myForm="ngForm">
+        <div class="form-group">
+          <label id="label-set">Filter by Country Name:</label>
+          <input type="text" name="textVal" [(ngModel)]="textValueName" class="form-control">
+        </div>
+      </form>
+
+    </div><!-- column end -->
+
+    <div class="col-4">
+      <form #myForm="ngForm">
+        <div class="form-group">
+          <label id="label-set">Filter by Country Capital:</label>
+          <input type="text" name="textVal" [(ngModel)]="textValueCapital" class="form-control">
+        </div>
+      </form>
+
+    </div><!-- column end -->
+
+  </div><!-- row end -->
+
+  <div class="row mb-5">
+    <div class="col-2 col-md-1 btn btn-info   border" (click)="alphabetSort('All')">All</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('A')">A</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('B')">B</div>
+    <div class="col-2 col-md-1 btn btn-info  border" (click)="alphabetSort('C')">C</div>
+    <div class="col-2 col-md-1 btn btn-info  border" (click)="alphabetSort('D')">D</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('E')">E</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('F')">F </div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('G')">G</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('H')">H</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('I')">I</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('J')">J</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('K')">K</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('L')">L</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('M')">M</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('N')">N</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('O')">O</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('P')">P</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('Q')">Q</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('R')">R</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('S')">S</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('T')">T</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('U')">U</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('V')">V</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('W')">W</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('X')">X</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('Y')">Y</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('Z')">Z</div>
+
+
+  </div><!-- row end -->
+
+<!-- row start -->
+  <div class="row">
+    <div *ngFor="let country of countryList  | sort:[inputValue,textValueName,textValueCapital] | paginate: { itemsPerPage: 12, currentPage: p }; let i = index"
+      class="col-sm-6 col-lg-4 mb-4">
+      <div class="card">
+        <img class="card-img-top border img-fluid" id="img-size" src="{{country.flag}}" alt="Flag image">
+        <div class="card-header" id="header-style">
+          <span *ngIf="checkValue(country.name);else nonAvail">
+            {{setName(country.name)}}
+          </span>
+          <br/>
+          <span id="cap-style">
+            <u>Capital</u>-
+            <em>
+              <span *ngIf="checkValue(country.capital);else nonAvail">
+                {{country.capital}}
+              </span>
+            </em>
+          </span>
+          <ng-template #nonAvail>
+            Not Available
+          </ng-template>
+
+        </div><!-- card header -->
+
+        <div class="card-body">
+          <ul class="nav nav-tabs">
+            <li class="nav-item active">
+              <a class="nav-link" data-toggle="tab" href="#{{removeSpecialChar(country.name)}}home" title="Basic">
+                <i class="fa fa-info fa-lg"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#{{removeSpecialChar(country.name)}}menu1" title="Currency">
+                <i class="fa fa-money fa-lg"></i>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#{{removeSpecialChar(country.name)}}menu2" title="Languages">
+                <i class="fa fa-language fa-lg"></i>
+              </a>
+            </li>
+          </ul><!-- nav tabs end -->
+          <div class="tab-content">
+            <div id="{{removeSpecialChar(country.name)}}home" class="tab-pane fade show active">
+              <br>
+              <b id="heading">Region -</b>
+              <span *ngIf="checkValue(country.region);else noAvail" id="subheading">{{country.region}}
+
+              </span>
+              <ng-template #noAvail>
+                <span id="subheading">Not Available</span>
+              </ng-template>
+              <br/>
+              <b id="heading">SubRegion -</b>
+              <span *ngIf="checkValue(country.subregion);else noAvail" id="subheading">{{country.subregion}}
+
+              </span>
+              <br/>
+              <b id="heading">Calling Code(s) -</b>
+              <span *ngIf="checkValue(country.callingCodes);else noAvail" id="subheading">{{country.callingCodes.toString()}}
+
+              </span>
+              <br/>
+              <b id="heading">TimeZone(s)-</b>
+              <span *ngIf="checkValue(country.timezones);else noAvail" id="subheading">{{country.timezones.toString()}}
+
+              </span>
+
+            </div><!-- home end -->
+            <div id="{{removeSpecialChar(country.name)}}menu1" class=" tab-pane fade">
+              <br>
+              <span *ngIf="checkValue(country.currencies);else noAvail">
+                <span *ngFor="let currency of country.currencies;let last=last;" id="subheading">
+                  <a [routerLink]="['/allCountry','currency',currency.code]" title="Search by Currency">{{currency.name }}{{(last) ? " ":", "}}
+                  </a>
+                </span>
+              </span>
+            </div><!-- menu1 end -->
+            <div id="{{removeSpecialChar(country.name)}}menu2" class=" tab-pane fade">
+              <br>
+              <span *ngIf="checkValue(country.languages);else noAvail">
+                <span *ngFor="let lang of country.languages;let last=last;" id="subheading">
+                  <a [routerLink]="['/allCountry','lang',lang.iso639_1]" title="Search by Language">{{lang.name }}{{(last) ? " ":", "}}</a>
+                </span>
+              </span>
+            </div><!-- menu2 end -->
+          </div><!-- tab content -->
+        </div><!-- card body -->
+        <div class="card-footer">
+          <a class="btn btn-info btn-block text-light" [routerLink]="['/Country',country.name]">Explore More..</a>
+        </div><!-- card footer -->
+      </div><!-- card -->
+    </div>
+    <!-- column end -->
+  </div><!-- row end -->
+  <a class="btn btn-danger btn-lg border float-right " id="back-button" (click)="goBack()">Go Back</a>
+  <!-- row end -->
+  <div class="text-center mt-5">
+    <pagination-controls (pageChange)="p = $event" autoHide="true" previousLabel="Go Back" nextLabel="Go Ahead"></pagination-controls>
+  </div>
+</div>
+<!-- container end -->

@@ -1,0 +1,17 @@
+#heading{
+    color:#E7717D;
+    font-size:2.8vmin;
+    text-shadow: 1px 1px #557A95;
+}
+#subheading{
+    color:#557A95;
+    font-family:cursive;
+    font-size:2.7vmin;
+}
+.shadow{
+    box-shadow:10px 10px 8px #E7717D;
+}
+.row-adjust{
+  margin-top:15vmin;
+  margin-bottom:15vmin;
+}

@@ -1,0 +1,14 @@
+#heading{
+    color:#46A29F;
+    font-size:2.8vmin;
+    text-shadow: 1px 1px #557A95;
+    text-decoration:underline;
+}
+#subheading{
+    color:#F76D6D;
+    font-family:cursive;
+    font-size:2.7vmin;
+}
+.shadow{
+    box-shadow:10px 10px 8px #557A95;;
+}

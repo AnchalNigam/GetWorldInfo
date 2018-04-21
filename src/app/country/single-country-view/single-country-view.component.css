@@ -1,0 +1,27 @@
+h1{
+    font-family:garamond;
+    color:#05396B;
+    font-weight:bold;
+    font-size:6vmin;
+    
+}
+h3{
+    font-size:3.3vmin;
+}
+
+.heading{
+    font-size:6vmin;
+    font-weight:bold;
+    font-family:garamond;
+    color:#557A95;
+    text-shadow: 2px 2px #ff0000;
+    text-align:left;
+}
+#content-left {  
+    text-align: left;
+}
+#subheading{
+    color:red;
+    font-family:cursive;
+    font-size:15px;
+}

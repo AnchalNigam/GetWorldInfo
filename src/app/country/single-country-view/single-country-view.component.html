@@ -1,0 +1,167 @@
+<!--header view-->
+<span *ngIf="flag">
+  <app-header-view [url]="flag" [subheading]="''" [heading]="''" [color]="'black'"></app-header-view>
+  <!--end of header view-->
+</span>
+<!-- container start -->
+<div class="container text-center" *ngIf="countryInfo">
+  <h1 class="text-center">{{countryInfo.name}}</h1>
+  <h3 class="text-center text-danger">Explore the country and discover its beauty..</h3>
+
+  <app-image-design [pos]=1 [url]="'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTXbZqsRyBbiR50IIK4pHzgXJejthYDvyIV4OdIv9QgfTQR4vE'"
+    [keyValue]="[{'Capital':countryInfo.capital,'Region':countryInfo.region,'Sub Region':countryInfo.subregion}]">
+  </app-image-design>
+<!-- heading -->
+  <div class="mt-5">
+    <h1 class="heading">Codes</h1>
+  </div>
+
+  <app-grid-design [keyValue]="[{'Calling Code':countryInfo.callingCodes,'Alpha 2 Code':countryInfo.
+   alpha2Code,'Alpha 3 Code':countryInfo.alpha3Code,'Numeric Code':countryInfo.numericCode}]"></app-grid-design>
+
+  <app-image-design [pos]=0 [url]="'http://simplyg.com/wp-content/uploads/2014/06/Infinity-Time1.jpg'" [keyValue]="[{'TimeZone':countryInfo.timezones,'Top Level Domain':countryInfo.topLevelDomain,'Cioc':countryInfo.cioc}]">
+  </app-image-design>
+<!-- heading -->
+  <div class="mt-5">
+    <h1 class="heading">Geographic Information</h1>
+  </div>
+
+  <app-grid-design [keyValue]="[{'Poulation':countryInfo.population,'Latitude and Longitude':countryInfo.latlng
+   ,'Area':countryInfo.area,'Gini Index':countryInfo.gini}]"></app-grid-design>
+
+  <app-image-design [pos]=1 [url]="'http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/256/Actions-help-about-icon.png'"
+    [keyValue]="[{'Native Name':countryInfo.nativeName,'Demonym':countryInfo.demonym,'Spellings':countryInfo.altSpellings}]">
+  </app-image-design>
+<!-- heading -->
+  <div class="mt-5">
+    <h1 class="heading">Basic Information</h1>
+  </div>
+
+  <nav class="navbar navbar-expand-md ">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <i class='fa fa-bars '></i>
+    </button>
+    <!-- Nav pills -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar nav nav-pills mx-auto justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="pill" href="#home">Languages</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="pill" href="#menu1">Currencies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="pill" href="#menu2">Border</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="pill" href="#menu3">Regional Blocs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="pill" href="#menu4">Translations</a>
+        </li>
+      </ul>
+    </div>
+  </nav><!-- nav end -->
+
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane active container" id="home">
+      <div class="row">
+        <div class="col-sm-4 d-none d-sm-block">
+          <img style="width:100%;height:240px" src="https://cdn-images-1.medium.com/max/1600/1*nNxybrXr-YPikYvaXyDbkQ.jpeg">
+        </div>
+        <div class="col-12 col-sm-8 mt-5 mx-auto">
+          <h1 style="font-size:4.3vmin">Languages</h1>
+          <span *ngIf="checkValue(countryInfo.languages);else noAvail">
+            <span *ngFor="let lang of countryInfo.languages;let last=last;">
+              <a [routerLink]="['/allCountry','lang',lang.iso639_1]" id="subheading" title="Search by Language">{{lang.name }}{{(last) ? " ":", "}}</a>
+            </span>
+          </span>
+          <ng-template #noAvail>
+            <span id="subheading">Not Available</span>
+          </ng-template>
+        </div>
+      </div>
+    </div><!-- home end -->
+    <div class="tab-pane container" id="menu1">
+      <div class="row">
+        <div class="col-sm-4 d-none d-sm-block">
+          <img style="width:100%;height:240px" src="https://www.travelex.com/media/2929/11152303_ml.jpg">
+        </div>
+        <div class="col-12 col-sm-8  mt-5 mx-auto">
+          <h1 style="font-size:4.3vmin">Currency(s)</h1>
+          <span *ngIf="checkValue(countryInfo.currencies);else noAvail">
+            <span *ngFor="let currency of countryInfo.currencies;let last=last;" id="subheading">
+              <a [routerLink]="['/allCountry','currency',currency.code]" title="Search by Currency">{{currency.name }}{{(last) ? " ":", "}}
+              </a>
+            </span>
+          </span>
+          <ng-template #noAvail>
+            <span id="subheading">Not Available</span>
+          </ng-template>
+        </div>
+      </div>
+    </div><!-- menu1 end -->
+    <div class="tab-pane container" id="menu2">
+      <div class="row">
+        <div class="col-sm-4 d-none d-sm-block">
+          <img style="width:100%;height:240px" src="http://2.bp.blogspot.com/-s_-BHbYPMyY/U4i7bYnfMRI/AAAAAAAAAv0/OP7SMHOJ9Rk/s1600/2.jpg">
+        </div>
+        <div class="col-12 col-sm-8  mt-5 mx-auto">
+          <h1 style="font-size:4.3vmin">Border(s)</h1>
+          <span *ngIf="checkValue(countryInfo.borders);else noAvail">
+            <span id="subheading">
+              {{countryInfo.borders.toString()}}
+            </span>
+          </span>
+          <ng-template #noAvail>
+            <span id="subheading">Not Available</span>
+          </ng-template>
+        </div>
+      </div>
+    </div><!-- menu2 end -->
+    <div class="tab-pane container" id="menu3">
+      <div class="row">
+        <div class="col-sm-4 d-none d-sm-block">
+          <img style="width:100%;height:240px" src="http://pacificallianceblog.com/wp-content/uploads/2018/03/Pacific-Alliance-logo-home-1.jpg">
+        </div>
+        <div class="col-12 col-sm-8  mt-5 mx-auto">
+          <h1 style="font-size:4.3vmin">Regional Blocs</h1>
+          <span *ngIf="checkValue(countryInfo.regionalBlocs);else noAvail">
+            <span *ngFor="let currency of countryInfo.regionalBlocs;let last=last;" id="subheading">
+              {{currency.name }}{{(last) ? " ":", "}}
+
+            </span>
+          </span>
+          <ng-template #noAvail>
+            <span id="subheading">Not Available</span>
+          </ng-template>
+        </div>
+      </div>
+    </div><!-- menu3 end -->
+    <div class="tab-pane" id="menu4">
+
+      <div class="row">
+        <div class="col-sm-4 d-none d-sm-block">
+          <img style="width:100%;height:240px" src="http://www.apostille.org.uk/sites/default/files/translation-globe350.png">
+        </div>
+        <div class="col-12 col-sm-8 mt-5">
+          <h1 style="font-size:4.3vmin">Translations</h1>
+          <span *ngIf="checkValue(countryInfo.translations);else noAvail">
+            <span id="subheading">
+              {{translation.toString()}}
+            </span>
+          </span>
+          <ng-template #noAvail>
+            <span id="subheading">Not Available</span>
+          </ng-template>
+        </div> <!-- column end -->
+      </div><!-- row end -->
+
+    </div><!-- menu4 end -->
+  </div><!-- tab content end -->
+  <a class="btn btn-danger btn-lg border float-right " id="back-button" (click)="goBack()">Go Back</a>
+
+
+</div><!-- end -->

@@ -1,0 +1,68 @@
+<!--header view-->
+<app-header-view [url]="'https://cdn.pixabay.com/photo/2018/01/31/06/56/map-3120436__340.jpg'" 
+[subheading]="'Explore the world and Make your Own Map....'" [heading]="'Get the World Info'" [color]="'white'"></app-header-view>
+<!--end of header view-->
+
+<!--main content start-->
+<div class="container">
+    <div class="row">
+        <div class="col-12 border border-primary rounded col-lg-12 back-img img-1">
+            <div class="row ">
+                <div class="col-6 mx-auto top-adjust">
+                    <h1 class="text-center">ASIA</h1>
+                    <a class="btn btn-info mt-4 d-block" [routerLink]="['/allCountry','region','asia']">
+                     <h5>Explore More...</h5>
+                    </a>
+                </div>
+            </div><!-- row end -->
+        </div><!-- column end -->
+    </div><!-- row end -->
+    <div class="row row-adjust">
+        <div class="col-12 border border-danger rounded col-lg-12 back-img img-2">
+            <div class="row ">
+                <div class="col-6 mx-auto top-adjust">
+                    <h1 class="text-center">AMERICA</h1>
+                    <a class="btn btn-danger mt-4 d-block" [routerLink]="['/allCountry','region','americas']">
+                        <h5>Explore More...</h5>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div><!-- row end -->
+    <div class="row row-adjust">
+        <div class="col-12 border border-success rounded col-lg-12 back-img img-3">
+            <div class="row ">
+                <div class="col-6 mx-auto top-adjust">
+                    <h1 class="text-center">AFRICA</h1>
+                    <a class="btn btn-success mt-4 d-block" [routerLink]="['/allCountry','region','africa']">
+                        <h5>Explore More...</h5>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div><!-- row end -->
+    <div class="row row-adjust">
+        <div class="col-12 border border-warning rounded col-lg-12 back-img img-4">
+            <div class="row ">
+                <div class="col-6 mx-auto top-adjust">
+                    <h1 class="text-center">EUROPE</h1>
+                    <a class="btn btn-warning mt-4 d-block" [routerLink]="['/allCountry','region','europe']">
+                        <h5>Explore More...</h5>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div><!-- row end -->
+    <div class="row row-adjust">
+        <div class="col-12 border border-primary rounded col-lg-12 back-img img-5">
+            <div class="row ">
+                <div class="col-6 mx-auto top-adjust">
+                    <h1 class="text-center">OCEANIA</h1>
+                    <a class="btn btn-primary mt-4 d-block" [routerLink]="['/allCountry','region','oceania']">
+                        <h5>Explore More...</h5>
+                    </a>
+                </div>
+            </div><!-- row end -->
+        </div><!-- column end -->
+    </div><!-- row end -->
+</div><!-- container end -->
