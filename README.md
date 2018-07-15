@@ -1,27 +1,13 @@
 # GetWorldInfo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+GetWorldInfo is website that provides information of all countries of asia,africa,america,europe and oceania. All countries of each continent with information of their languages,capital,currency are listed. It has also feature of filter like filter by country name,country capital,filter by alphabets and filter by alphabets. GetWorldInfo also gives detailed information of each country. It also gives feature of filter by languages and currency as well.
 
-## Development server
+Language:HTML, CSS, Bootstrap4, Angular 5.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Live Link: http://getworldinfo.webdeveloperjourney.xyz/
 
-## Code scaffolding
+Screenshots:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![worldinfo3](https://user-images.githubusercontent.com/32920850/42731061-23b2a7c4-8823-11e8-9847-1da93cc05388.png)
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![worldinfo2](https://user-images.githubusercontent.com/32920850/42731063-2ae791c6-8823-11e8-9967-fbf2f7090dd8.png)
