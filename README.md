@@ -4,8 +4,6 @@ GetWorldInfo is website that provides information of all countries of asia,afric
 
 Language:HTML, CSS, Bootstrap4, Angular 5.
 
-Live Link: http://getworldinfo.webdeveloperjourney.xyz/
-
 Screenshots:
 
 ![worldinfo3](https://user-images.githubusercontent.com/32920850/42731061-23b2a7c4-8823-11e8-9847-1da93cc05388.png)
